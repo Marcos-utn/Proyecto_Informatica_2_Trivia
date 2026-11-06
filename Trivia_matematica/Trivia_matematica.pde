@@ -54,7 +54,8 @@ void draw(){
   
   case 2:
   
-  contes=1;
+  contes=0;
+  
   Respuesta(contes);
   
   break;
@@ -62,6 +63,7 @@ void draw(){
   
   case 3:
   
+  espera();
   
   break;
   
@@ -72,24 +74,6 @@ void draw(){
   
 }
 
-void Respuesta(int contes){
- 
-    
-  if(general.res==contes){
-    
-    text("correcto",20,200);
-    
-    
-    general.etapa=3;
-    
-  }
-  
-  
-  
-  
-  
-}
-
 void pregunta(){
    
   
@@ -97,9 +81,9 @@ void pregunta(){
   switch(general.progreso){
   case 1:
   
-  general.a=int(random(10));
+  general.a=int(random(1));
     
-  general.b=int(random(10));
+  general.b=int(random(1));
   
   general.res=general.a+general.b;
   
@@ -108,9 +92,9 @@ void pregunta(){
   break;
   case 2:
   
-  general.a=int(random(10));
+  general.a=int(random(2));
     
-  general.b=int(random(10));
+  general.b=int(random(1));
   
   general.res=general.a-general.b;
   
@@ -121,4 +105,38 @@ void pregunta(){
  
   general.etapa=2;
   
+}
+
+
+void Respuesta(int contes){
+ 
+    
+  if(general.res==contes){
+    
+    text("correcto",20,200);
+    if(general.progreso==2){
+    text("correcto",20,230);
+    }
+    general.etapa=3;
+    
+  }
+  
+  
+  
+  
+}
+
+
+
+void espera(){
+   
+  int z=0;
+  
+  do{
+    
+    
+  }
+  while(z==1);
+ general.etapa=1;
+  general.progreso=general.progreso+1;
 }
