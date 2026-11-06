@@ -1,11 +1,16 @@
+
+
+
 class historial{
   
   
 }
 
 class gene{
- int  etapa=1,res; 
-  
+ int  etapa=1,progreso=1; 
+  float a,b,res;  
+
+
 }
 //declaracion global
 gene general = new gene();
@@ -72,7 +77,11 @@ void Respuesta(int contes){
     
   if(general.res==contes){
     
+    text("correcto",20,200);
+    
+    
     general.etapa=3;
+    
   }
   
   
@@ -82,10 +91,34 @@ void Respuesta(int contes){
 }
 
 void pregunta(){
+   
+  
+  
+  switch(general.progreso){
+  case 1:
+  
+  general.a=int(random(10));
+    
+  general.b=int(random(10));
+  
+  general.res=general.a+general.b;
+  
+  
+  
+  break;
+  case 2:
+  
+  general.a=int(random(10));
+    
+  general.b=int(random(10));
+  
+  general.res=general.a-general.b;
+  
+  break;
+  
+
+  }
  
-  
-  general.res=10;
   general.etapa=2;
-  
   
 }
